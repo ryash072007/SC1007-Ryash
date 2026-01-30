@@ -46,6 +46,26 @@ class LinkedList:
 
 def split(ll):
     # Add your code here #
+    even_list: LinkedList = LinkedList()
+    odd_list : LinkedList = LinkedList()
+
+    even_count = 0
+    odd_count = 0
+
+    insert_to_even: bool = True
+
+    current: Node = ll.head
+    while current:
+        if insert_to_even:
+            even_list.insert(current.data, even_count)
+            even_count += 1
+        else:
+            odd_list.insert(current.data, odd_count)
+            odd_count += 1
+        current = current.next
+        insert_to_even = not insert_to_even
+    
+    return even_list, odd_list
 
 if __name__ == "__main__":
     linked_list = LinkedList()

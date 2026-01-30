@@ -80,6 +80,7 @@ class LinkedList:
 # The standalone function as specified in the question
 def removeNode(ll, index):
     #add your code here#
+    return ll.remove(index)
 
 if __name__ == "__main__":
     ll = LinkedList()

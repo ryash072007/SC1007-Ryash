@@ -72,7 +72,18 @@ class LinkedList:
         print("None")
 
 def moveOdditemstoback(head):
-   # add your code here #
+    # add your code here #
+    outputLinkedList: LinkedList = LinkedList()
+    current: Node = head
+    non_odd_count = 0
+    while current:
+        if current.data % 2 == 1:
+            outputLinkedList.insertNode(current.data, outputLinkedList.size)
+        else:
+            outputLinkedList.insertNode(current.data, non_odd_count)
+            non_odd_count += 1
+        current = current.next
+    return outputLinkedList.head
 
 if __name__ == "__main__":
     linked_list = LinkedList()

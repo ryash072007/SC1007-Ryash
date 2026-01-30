@@ -58,7 +58,12 @@ class LinkedList:
 
 def duplicateReverse(ll):
     # Add your code here
-    
+    reversed_list: LinkedList = LinkedList()
+    current: Node = ll.head
+    while current:
+        reversed_list.insert(current.data, 0)
+        current = current.next
+    return reversed_list
 
 if __name__ == "__main__":
     # Create main linked list
