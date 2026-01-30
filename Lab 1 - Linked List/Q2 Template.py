@@ -79,8 +79,32 @@ class LinkedList:
 
 # The standalone function as specified in the question
 def removeNode(ll, index):
-    #add your code here#
-    return ll.remove(index)
+    if ll.head is None:
+        print("List is empty")
+        return False
+        
+    if index == 0:
+        cur = ll.head
+        ll.head = cur.next
+        del cur
+        ll.size -= 1
+        return True
+        
+    current = ll.head
+    count = 0
+    while current and count < index - 1:
+        current = current.next
+        count += 1
+        
+    if not current or not current.next:
+        print("Index out of range")
+        return False
+        
+    temp = current.next
+    current.next = temp.next
+    del temp
+    ll.size -= 1
+    return True
 
 if __name__ == "__main__":
     ll = LinkedList()
